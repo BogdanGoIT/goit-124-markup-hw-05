@@ -53,8 +53,8 @@ button {
 input,
 textarea {
   border: none;
-  outline: none;
   padding: 0;
+  outline: transparent;
 }
 
 /* #endregion RESET */
@@ -517,10 +517,11 @@ textarea {
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
-  opacity: 0;
-  pointer-events: none;
-  visibility: hidden;
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* opacity: 0; */
+  /* pointer-events: none; */
+  /* visibility: hidden; */
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-open {
@@ -541,6 +542,7 @@ textarea {
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
   background-color: #fcfcfc;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close {
@@ -557,12 +559,21 @@ textarea {
   background-color: #e7e9fc;
 
   border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: background-color, color, 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-close:hover,
 .modal-close:focus {
   background-color: #404bbf;
+  border: none;
+}
+
+.close-icon {
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-close:hover .close-icon {
   fill: #fff;
 }
 
@@ -584,7 +595,7 @@ textarea {
 .user-agreement {
   display: block;
   font-size: 12px;
-  line-height: 1.1;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: #8e8f99;
   margin-bottom: 4px;
@@ -595,6 +606,7 @@ textarea {
 }
 
 .modal-form-input {
+  background-color: transparent;
   padding: 11px 38px;
   display: block;
   border-radius: 4px;
@@ -614,7 +626,7 @@ textarea {
 }
 
 .modal-form-input:focus,
-.modal-form-text:focus {
+.modal-form-message:focus {
   border-color: #4d5ae5;
 }
 
@@ -622,24 +634,26 @@ textarea {
   fill: #4d5ae5;
 }
 
-.modal-form-text {
+.modal-form-textarea {
+  margin-bottom: 16px;
+}
+
+.modal-form-message {
+  letter-spacing: 0.04em;
+  line-height: 1.17;
+  font-size: 12px;
+  color: rgba(46, 47, 66, 0.4);
   width: 100%;
   height: 120px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   resize: none;
   padding: 8px 16px;
   border-radius: 4px;
-}
-
-.modal-form-text::placeholder {
-  color: rgba(46, 47, 66, 0.4);
-  font-size: 12px;
-  line-height: 1.1;
-  letter-spacing: 0.04em;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-agreement {
-  margin-bottom: 16px;
+  margin-bottom: 24px;
 }
 
 .agreement-checkbox {
