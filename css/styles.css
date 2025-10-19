@@ -573,8 +573,9 @@ textarea {
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-close:hover .close-icon {
-  fill: #fff;
+.modal-close:hover .close-icon,
+.modal-close:focus .close-icon {
+  fill: #ffffff;
 }
 
 /* #endregion Modal*/
@@ -639,6 +640,7 @@ textarea {
 }
 
 .modal-form-message {
+  background-color: transparent;
   letter-spacing: 0.04em;
   line-height: 1.17;
   font-size: 12px;
@@ -665,14 +667,16 @@ textarea {
   border-radius: 2px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   fill: transparent;
-  transition-property: background-color, fill;
-  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   margin-right: 8px;
 }
 
-input[type='checkbox']:checked + label .agreement-checkbox {
+input[type='checkbox']:checked + .user-agreement .agreement-checkbox {
   background-color: #404bbf;
   fill: #f4f4fd;
+  border: none;
 }
 
 .accent-text {
