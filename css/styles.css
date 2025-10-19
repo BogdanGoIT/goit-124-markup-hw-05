@@ -426,10 +426,6 @@ textarea {
   align-items: baseline;
 }
 
-.footer-brand {
-  /* margin-right: 120px; */
-}
-
 .footer-logo {
   display: inline-block;
   margin-bottom: 16px;
@@ -673,7 +669,7 @@ textarea {
   margin-right: 8px;
 }
 
-input[type='checkbox']:checked + .user-agreement .agreement-checkbox {
+.user-privacy:checked + .user-agreement .agreement-checkbox {
   background-color: #404bbf;
   fill: #f4f4fd;
   border: none;
